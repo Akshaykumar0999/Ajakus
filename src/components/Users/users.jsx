@@ -70,7 +70,7 @@ const DashBoard = () => {
         const newID = userDetails.find((eachData) => {
             return eachData.id === parseInt(userData.id);
         });
-        if (!newID) {
+        // if (!newID) {
             try {
                 const newUser = {
                     id: userData.id,
@@ -78,7 +78,7 @@ const DashBoard = () => {
                     email: userData.email,
                     website: userData.department
                 }
-                const res = await Api.post('/user', newUser)
+                const res = await Api.post('/users', newUser)
                 console.log(res)
                 if (res.status === 201) {
                     setShow(false)
@@ -99,9 +99,10 @@ const DashBoard = () => {
             })
         }else {
             alert('Give Unique Id')
-        }}else {
-            alert('Enter The Fields')
         }
+    // }else {
+    //         alert('Enter The Fields')
+    //     }
         
     }
 
